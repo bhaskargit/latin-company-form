@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <%= render partial: '/sidebar' %>
+    <div class="col-md-10 well">
+      <p class="lead chart-padding">Food items sales performance from 2004-2007</p>
+      <div class="row">
+        <div class="col-md-6">
+          <%= render_chart(@bchart, 'chart1') %>
+        	<div id='chart1'></div>
+        </div>
+
+        <div class="col-md-6">
+          <%= render_chart(@pchart, 'chart2') %>
+       		<div id='chart2'></div>
+        </div>
+      </div> 
+      <br><br>
+      <div class="row">
+        <div class="col-md-6">
+          <%= render_chart(@achart, 'chart4') %>
+        	<div id='chart4'></div>
+        </div>
+
+        <div class="col-md-6">
+          <%= render_chart(@buchart, 'chart5') %>
+       		<div id='chart5'></div>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-md-6">
+         <%= render_chart(@cchart, 'chart7') %>
+     		 <div id='chart7'></div>
+        </div> 
+
+	      <div class="col-md-6">
+	        <%= render_chart(@lchart, 'chart3') %>
+	     		<div id='chart3'></div>
+	      </div>  
+      </div>   
+    </div>
+  </div>
+</div>
+ 		

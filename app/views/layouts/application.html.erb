@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LatinFoods</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src='http://www.google.com/jsapi'></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render 'layouts/top_nav_bar'%>
+<%= yield %>
+
+</body>
+</html>

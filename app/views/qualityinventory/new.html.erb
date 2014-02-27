@@ -1,0 +1,287 @@
+<%= render partial: '/sidebar' %>
+<div class="container">
+	<div class="col-md-10">
+		<div class="bs-example">
+  	      <ul class="nav nav-tabs">
+  	       <li class="active"><a href="#home" data-toggle="tab">Main</a></li>
+  	        <li><a href="#profile" data-toggle="tab">Comments</a></li>
+  	      </ul>
+  	</div>
+		<div class="well">	
+				<%= form_for @qi,url: {controller: 'qualityinventory', action: 'create'}, method: :post,:html => { :multipart => true, class:'form-horizontal' }  do |f| %>
+				<div class="container">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-5">
+								<%= f.text_field :title, class: 'form-control input-md', placeholder:'Title' %>
+							</div>
+							<div class="col-md-6"> 
+								<%= f.submit "Save", class: 'btn btn-primary' %>
+								<%= f.submit "Pdf", class: 'btn btn-primary' %>
+								<%= f.submit "Print", class: 'btn btn-primary' %>
+								<%= f.submit "Send By Email", class: 'btn btn-primary' %>
+							</div>
+				    </div>
+			    </div>
+			    <hr width="75%" align="left">
+			  </div>
+						
+				<div class="">
+					<div class="col-lg-9">
+						<div class="row">
+							<div class="form-group">
+						  	<label class="col-md-4 control-label">Name of the Method</label>  
+								<div class="col-md-7">
+									<%= f.text_field :methodorgadget ,class: 'form-control input-md' %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="form-group">
+							  <label class="col-md-4 control-label">What it is for?</label>  
+								<div class="col-md-7">
+									<%= f.text_field :usefulfor, class: 'form-control input-md' %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="form-group">
+		  					<label class="col-md-4 control-label">Analysis Group</label>
+		  						<div class="col-md-7">
+		    						<%= f.select :analysisgroup, options_for_select([ "Blood", "Breath", "Urine" ]), { :include_blank=>true }, { :class => 'form-control' } %>
+		  						</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="form-group">
+		  					<label class="col-md-4 control-label" for="">Short description of Gadget</label>
+		  					<div class="col-md-7"> 
+		  						<%= f.text_area :gadgetdescription, class: 'form-control', rows: 4 %>
+		  					</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="buttondropdown">Cost</label>
+								<div class="col-md-7">
+								  <div class="input-group">
+								    <%= f.text_field :cost, class: 'form-control' %>
+								    <div class="input-group-btn">
+								      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								          Action
+								          <span class="caret"></span>
+								      </button>
+								      <ul class="dropdown-menu pull-right">
+								        <li><a href="#">Euro</a></li>
+								        <li><a href="#">Dollar</a></li>
+								        <li><a href="#">Yen</a></li>
+								      </ul>
+								    </div>
+								  </div>
+								</div>
+							</div>
+						</div>
+				  </div>  
+				  <div class="col-lg-3">
+				  <div>
+				  <div class="upload-preview">
+   					<img id="imag" src="/assets/avatar.png" alt="Avatar" width="100px" height="100px" />
+					</div>
+   
+				  </div>
+					  <%= f.file_field :avatar, onchange: "readURL(this);"  %>
+				 	</div>
+					<br>
+					<hr width="98%" align="left">
+
+						<div class="row">
+							<div class="form-group">
+								<label class="col-md-3 control-label">Company Name</label>  
+		  					<div class="col-md-4">
+		  						<%= f.text_field :companyname, class: 'form-control input-md' %>
+		  					</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="form-group">
+						  	<label class="col-md-4 control-label">Company description</label>  
+								<div class="col-md-5">
+									<%= f.text_area :companydescription, class: 'form-control input-md', rows:4 %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">			
+							<div class="form-group">
+						 	 <label class="col-md-4 control-label">Company Website</label>  
+								<div class="col-md-5">
+									<%= f.text_field :companywebsite, class: 'form-control input-md' %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="form-group">
+							  <label class="col-md-4 control-label">Scientific Advisary Institutes</label>  
+								<div class="col-md-4">
+									<input id="" name="" type="text" placeholder="" class="form-control input-md" required="">
+								</div>
+								<button type="button" class="btn btn-default">
+		  							<span class="glyphicon glyphicon-plus"></span> 
+								</button>
+							</div>
+						</div>
+
+			
+					<br>
+				<hr width="75%" align="left">
+
+	
+						<div class="row">
+							<div class="form-group">
+								<label class="col-md-4 control-label">Technology used</label>  
+		  					<div class="col-md-5">
+		  						<%= f.text_field :techologyused, class: 'form-control input-md' %>
+		  					</div>
+							</div>
+						</div>
+							<br>
+						<div class="row">
+							<div class="form-group">
+						  	<label class="col-md-4 control-label">Scientific description of</label>  
+								<div class="col-md-5">
+									<%= f.text_area :scientficdescription, class: 'form-control input-md', rows: 4 %>
+								</div>
+							</div>
+	
+						<br>
+						<div class="row">
+							<div class="form-group">
+							  <label class="col-md-4 control-label">Avalable scientific papers</label> 
+								<div class="col-md-4">
+									<input id="" name="" type="text" placeholder="" class="form-control input-md" required="">
+								</div>
+								<button type="button" class="btn btn-default">
+		  							<span class="glyphicon glyphicon-plus"></span> 
+								</button>
+							</div>
+						</div>
+					</div>
+					<br>
+					<hr width="75%" align="left">
+				
+						<div class="row">
+							<div class="form-group">
+	  						<label class="col-md-4 control-label" >Usefulness for field</label>
+	  						<div class="col-md-8"> 
+	    						<label class="radio-inline" for="radios-0">
+	      						<input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+	      							yes
+							    </label> 
+							    <label class="radio-inline" for="radios-1">
+							      <input type="radio" name="radios" id="radios-1" value="2">
+							      No
+							    </label> 
+							    <label class="radio-inline" for="radios-2">
+							      <input type="radio" name="radios" id="radios-2" value="3">
+							      May be
+							    </label>
+							    <label class="radio-inline">
+	      						<input type="checkbox"> Preliminary evaluation by Vivsan
+	    						</label>
+	  						</div>
+							</div>			
+			
+						<br>
+						<div class="row">
+							<div class="form-group">
+	  						<label class="col-md-4 control-label">Explnation</label>
+	  							<div class="col-md-5">  
+	  								<%= f.text_area :field1explnation, class: 'form-control input-md', rows:4 %>     
+	  							</div>
+							</div>
+						</div>	
+					</div>
+					<br>
+					<hr width="75%" align="left">
+
+							<div class="row">
+								<div class="form-group">
+		  						<label class="col-md-4 control-label" for="radios">Usefulness for field</label>
+		  						<div class="col-md-8"> 
+		    						<label class="radio-inline" for="radios-0">
+		      						<input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+		      							yes
+								    </label> 
+								    <label class="radio-inline" for="radios-1">
+								      <input type="radio" name="radios" id="radios-1" value="2">
+								      No
+								    </label> 
+								    <label class="radio-inline" for="radios-2">
+								      <input type="radio" name="radios" id="radios-2" value="3">
+								      May be
+								    </label>
+								    <label class="radio-inline">
+	      							<input type="checkbox"> Evaluated by NRC
+	    							</label>
+	  							</div>
+								</div>
+					
+							<br>
+							<div class="row">
+								<div class="form-group">
+							  	<label class="col-md-4 control-label">Usefull for which? </label>  
+	  							<div class="col-md-5">
+	  								<%= f.text_field :field2usefullforwhich, class: 'form-control input-md' %>
+	  							</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+		  						<label class="col-md-4 control-label">Expalnation</label>
+		  							<div class="col-md-5"> 
+		  								<%= f.text_area :field2explanation, class: 'form-control input-md', rows: 4 %>
+		  							</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<hr width="75%" align="left">
+							<div class="row">
+								<div class="form-group">
+		  						<label class="col-md-4 control-label">Name</label>  
+		  						<div class="col-md-5">
+		 								<%= f.text_field :name, class: 'form-control input-md' %>
+		  						</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+	  							<label class="col-md-4 control-label">Comment/Evolution/Suggestion</label>  
+	  							<div class="col-md-5">
+	 									<%= f.text_area :comment, class: 'form-control input-md', rows: 4 %>
+	  							</div>
+								</div>	
+							</div>
+						
+
+				<% end %>
+
+	 </div>
+ </div>
+</div>
+
+
+
+<!-- rails g model Qualityinventory title:string methodorgadget:string usefulfor:string analysisgroup:string gadgetdescription:text cost:decimal companyname:string companydescription:text companywebsite:string techologyused:string scientficdescription:text field1explnation:text field2usefullforwhich:string field2explanation:text name:string comment:text    
+
+ scientific advisors/institutes, avalable scientifiv papers, usefullness for field1, fied2 --> 

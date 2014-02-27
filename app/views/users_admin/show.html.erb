@@ -1,0 +1,33 @@
+
+<div class="container">
+	<div class="row">
+		<%= render partial: '/sidebar' %>
+		<div class="col-md-9">
+		<div class="well">
+		  <% if flash[:notice]  %>
+        <div class="alert alert-dismissable alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong><%= flash[:notice] %></strong> 
+        </div>
+      <% end %>
+		  <b>Name:</b>
+		  	<%= @user.first_name << @user.last_name %>
+			</p>
+
+		<p>
+		  <b>Email:</b>
+		  <%= @user.email %>
+		</p>
+
+		<p>
+		  <b>Institution:</b>
+		  <%= @user.institution %>
+		</p>
+
+		<%= link_to 'Edit', edit_users_admin_path(@user), class: 'btn btn-success' %>
+		<%= link_to 'Back',  users_admin_index_path, class: 'btn btn-default' %>
+
+		</div>
+	</div>
+	</div>
+</div>

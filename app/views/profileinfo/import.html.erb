@@ -1,0 +1,23 @@
+
+<div class="container">
+	<div class="row">
+		<%= render partial: '/sidebar' %>
+		<div class="col-md-9">
+			<div class="well">
+			<% if flash[:notice]  %>
+          <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><%= flash[:notice] %></strong> 
+          </div>
+        <% end %>
+				<%= form_tag({action: 'storedata', controller: 'profileinfo'}, multipart: true,class: 'form-horizontal') do %>
+					<p class="lead">Upload spread sheet data </p>
+		  		<div class="form-group">
+	    			<%= file_field_tag :file, required: true, class: 'btn btn-file' %>
+	  			</div>
+				<%= submit_tag 'Upload Data', class: 'btn btn-primary' %>
+	 			<% end %>
+	 		</div>
+		</div>
+	</div>
+</div>

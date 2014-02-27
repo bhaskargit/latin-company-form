@@ -1,0 +1,37 @@
+<div class="col-md-2">
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="<%= 'selected' if params[:controller] == 'users_admin' %>"><% if current_user.has_role? :Admin %>
+            <%= link_to 'Users', users_admin_index_path %>
+          <% end %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'roles' %>"><% if current_user.has_role? :Admin %>
+            <%= link_to 'Roles', roles_path %>
+             <% end %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'profileinfo' &&  params[:action] == 'personalinfo' %>">
+            <%= link_to 'Personal Info', {controller: 'profileinfo', action: 'personalinfo'} %> 
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'profileinfo' &&  params[:action] == 'uploaddatabyexcel' %>"><%= link_to 'Upload Data', {controller: 'profileinfo', action: 'uploaddatabyexcel'} %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'profileinfo' &&  params[:action] == 'manualdata' %>"><%= link_to 'Manual Data', {controller: 'profileinfo', action: 'manualdata'} %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'profileinfo' &&  params[:action] == 'search' %>"><%= link_to 'Search', {controller: 'profileinfo', action: 'search'} %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'videos' %>"><%= link_to 'Elearning', {controller: 'videos', action: 'index'} %>
+        <li class="<%= 'selected' if params[:controller] == 'profileinfo' &&  params[:action] == 'import' %>"><%= link_to 'Import Data', {controller: 'profileinfo', action: 'import'} %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'profileinfo' &&  params[:action] == 'newsletter' %>"><%= link_to 'News letters', {controller: 'profileinfo', action: 'newsletter'} %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'statistics' %>"><%= link_to 'Statistics', {controller: 'statistics', action: 'index'} %>
+        </li>
+        <li class="<%= 'selected' if params[:controller] == 'reports' %>"><%= link_to 'Reports', {controller: 'reports', action: 'index'} %>
+        </li>
+
+        <li class="<%= 'selected' if params[:controller] == 'qualityinventory' %>"><%= link_to 'Quality Inventory', {controller: 'qualityinventory', action: 'new'} %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
